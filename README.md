@@ -20,10 +20,8 @@ Goals and scope
 - Document Store: Versioned chunks with ETags; embedding pipeline; invalidation hooks.
 - Retriever: Chunk-level cache keyed by query and corpus version.
 ## Safety & Compliance
-- PII/PHI Filter: Redacts or blocks cache writes; labels sensitivity.
-- Policy Engine: Tenant/region data boundaries; encryption; retention.
+- PII/PHI Filter: Redacts or blocks cache writes; encryption; retention.
 ## Observability
-- Telemetry: Hit ratio, cost avoided, tail latency, freshness misses, semantic distances, safety blocks.
-- Feedback Loop: User ratings, auto-regeneration on low-quality signals.
+- Telemetry: Hit ratio, freshness misses, semantic distances
 
-Deployment note: Run on Kubernetes/EKS with sidecars for mTLS, Prometheus for metrics, and autoscaling on QPS + miss ratio. Use KMS for secrets, IAM roles for service accounts, and network segregation by tenant when required.
+Deployment note: Run on Kubernetes/EKS with sidecars for mTLS, Prometheus for metrics, and autoscaling on QPS + miss ratio. Use KMS for secrets, IAM roles for service accounts.
